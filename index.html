@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body onload="onLoad()">
+        <script src="data.txt"></script>
+        <code id="code"></code>
+        <script>
+            class Comic {
+                constructor(title, status, chapter, score){
+                    this.title = title;
+                    this.status = status;
+                    this.chapter = chapter;
+                    this.score = score;
+                }
+
+                format() {
+                    return `
+                    [quote]<br>
+                    [color=#ffffff]__[/color][size=125]${this.title}[/size] ${this.status}[color=#ffffff]__[/color]<br><br>
+                    [right][spoiler="information"]<br>
+                    ${this.status}[color=#ffffff]___[/color][size=75]Status[/size]<br>
+                    ${this.chapter}[color=#ffffff]__[/color][size=75]Chapter[/size]<br>
+                    ${this.score}/10[color=#ffffff]___[/color][size=75]Rating[/size]<br>
+                    [/spoiler][/right]
+                    [/quote]<br>
+                    `;
+                }
+            }
+
+            class Novel {
+                constructor(title, status, volume, chapter, score){
+                    this.title = title;
+                    this.status = status;
+                    this.volume = volume;
+                    this.chapter = chapter;
+                    this.score = score;
+                }
+
+                format() {
+                    return `
+                    [quote]<br>
+                    [color=#ffffff]__[/color][size=125]${this.title}[/size] ${this.status}[color=#ffffff]__[/color]<br><br>
+                    [right][spoiler="information"]<br>
+                    ${this.status}[color=#ffffff]___[/color][size=75]Status[/size]<br>
+                    ${this.volume}[color=#ffffff]___[/color][size=75]Volume[/size]<br>
+                    ${this.chapter}[color=#ffffff]__[/color][size=75]Chapter[/size]<br>
+                    ${this.score}/10[color=#ffffff]___[/color][size=75]Rating[/size]<br>
+                    [/spoiler][/right]
+                    [/quote]<br>
+                    `;
+                }
+            }
+
+            const Status = {
+                "reading":"[color=#2db039]Reading[/color]",
+                "completed":"[color=#26448f]Completed[/color]",
+                "dropped":"[color=#a12f31]Dropped[/color]",
+                "onhold":"[color=#f9d457]On-Hold[/color]"
+                };
+            Object.freeze(Status);
+
+            var comics = new Array();
+            var novels = new Array();
+
+            function onLoad() {
+                document.write(`
+                <br>
+                [quote]<br>
+                [size=200][color=#ffffff]__[/color]Webtoon/Manhwa/Manhua[/size]<br><br>
+                [spoiler=list]<br>
+                `);
+                var items = comic.split("|");
+                items.forEach(item => {
+                    let itemData = item.split(";");
+                    comics.push(new Comic(itemData[0], Status[itemData[1].trim()], itemData[2], itemData[3]));
+                });
+                comics.forEach(e => {
+                    document.write(e.format());
+                });
+
+                document.write(`
+                [/spoiler]
+                [/quote]<br>
+                [quote]<br>
+                [size=200][color=#ffffff]__[/color]Novel/Webnovel/Lightnovel[/size]<br><br>
+                [spoiler=list]<br>
+                `);
+
+                var items = novel.split("|");
+                items.forEach(item => {
+                    let itemData = item.split(";");
+                    novels.push(new Novel(itemData[0], Status[itemData[1].trim()], itemData[2], itemData[3], itemData[4]));
+                });
+                novels.forEach(e => {
+                    document.write(e.format());
+                });
+
+                document.write(`
+                [/spoiler]
+                [/quote]<br>
+                [right][spoiler="information"]<br>
+                Generated via tool.<br>
+                Created by [url=https://myanimelist.net/profile/Petrexis]Petrexis[/url].<br>
+                Code on [url=https://github.com/pPetrBednar/mal-list-generator]Github[/url].<br>
+                [/spoiler][/right]`);
+            }
+        </script>
+    </body>
+</html>
