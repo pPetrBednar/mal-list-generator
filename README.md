@@ -13,6 +13,11 @@ Tool supports adding literature with or without volume parameter.
 - Volume
 - Chapter
 - Rating
+### Status types
+- ![#26448f](https://via.placeholder.com/15/26448f/000000?text=+) `#26448f` Completed
+- ![#2db039](https://via.placeholder.com/15/2db039/000000?text=+) `#2db039` Reading
+- ![#f9d457](https://via.placeholder.com/15/f9d457/000000?text=+) `#f9d457` On-Hold
+- ![#a12f31](https://via.placeholder.com/15/a12f31/000000?text=+) `#a12f31` Dropped
 ## Usage
 1. Input own data to data.txt file according to preset format.
     - Store Webtoon/Manhwa/Manhua or other non volume comic to "comic" object.
