@@ -18,6 +18,8 @@ Tool supports adding literature with or without volume parameter.
 - ![#2db039](https://via.placeholder.com/15/2db039/000000?text=+) `#2db039` Reading
 - ![#f9d457](https://via.placeholder.com/15/f9d457/000000?text=+) `#f9d457` On-Hold
 - ![#a12f31](https://via.placeholder.com/15/a12f31/000000?text=+) `#a12f31` Dropped
+## Generator
+Generator creates information block for each type, list with additional infomation and summary graph about each type.
 ## Usage
 1. Input own data to data.txt file according to preset format.
     - Store Webtoon/Manhwa/Manhua or other non volume comic to "comic" object.
